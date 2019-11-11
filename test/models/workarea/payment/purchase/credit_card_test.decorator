@@ -1,0 +1,54 @@
+module Workarea
+  decorate Payment::Purchase::CreditCardTest, with: :payware_connect do
+    def test_complete_does_nothing_if_gateway_storage_fails
+      # no op store and purchase are one transaction
+    end
+
+    def test_complete_purchase_on_the_credit_card_gateway
+      operation = Payment::Purchase::CreditCard.new(tender, transaction)
+
+      original_purchase = Workarea.config.gateways.credit_card.method(:purchase)
+      Workarea.config.gateways.credit_card
+        .expects(:purchase)
+        .returns(
+          original_purchase.call(
+            transaction.amount.cents,
+            { credit_card: tender.to_active_merchant }
+          )
+      )
+
+      operation.complete!
+    end
+
+    def test_cancel_voids_with_the_authorization_from_the_transaction
+      transaction.response = ActiveMerchant::Billing::Response.new(
+        true,
+        'Message',
+        { 'RESPONSE' => { 'TROUTD' => troutd } },
+        { authorization: authorization }
+      )
+
+      operation = Payment::Purchase::CreditCard.new(tender, transaction)
+
+      original_void = operation.gateway.method(:void)
+      operation.gateway
+        .expects(:void)
+        .with(authorization)
+        .returns(original_void.call(authorization))
+
+      operation.cancel!
+    end
+
+    def test_complete_saves_the_partial_number
+      Payment::Purchase::CreditCard.new(tender, transaction).complete!
+
+      assert(tender.partial_number.present?)
+    end
+
+    private
+
+    def troutd
+      @troutd ||= ActiveMerchant::Billing::BogusGateway::AUTHORIZATION
+    end
+  end
+end

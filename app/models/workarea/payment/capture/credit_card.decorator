@@ -1,0 +1,14 @@
+module Workarea
+  decorate Payment::Capture::CreditCard, with: :payware_connect do
+    def complete!
+      validate_reference!
+
+      transaction.response = handle_active_merchant_errors do
+        gateway.capture(
+          transaction.amount.cents,
+          transaction.reference.response.troutd
+        )
+      end
+    end
+  end
+end

@@ -1,0 +1,10 @@
+module Workarea
+  decorate Payment::StoreCreditCardTest, with: :payware_connect do
+    def test_save_persists_partial_number
+      credit_card.token = nil
+      Payment::StoreCreditCard.new(credit_card).perform!
+
+      assert(credit_card.partial_number.present?)
+    end
+  end
+end

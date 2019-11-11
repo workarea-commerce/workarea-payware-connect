@@ -1,0 +1,128 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://cert.api.vfipayna.com/IPCHAPI/RH.ASPX
+    body:
+      encoding: UTF-8
+      string: "<TRANSACTION><FUNCTION_TYPE>PAYMENT</FUNCTION_TYPE><PAYMENT_TYPE>CREDIT</PAYMENT_TYPE><CLIENT_ID>17270300010001</CLIENT_ID><MERCHANTKEY>49BC6225-4B49-4585-8D34-07DCA05CF3937FD6C525-8AEE-4916-BEEC-BDB</MERCHANTKEY><USER_ID>apiuser</USER_ID><USER_PW>6GHMg7ur</USER_PW><COMMAND>PRE_AUTH</COMMAND><TRANS_AMOUNT>10.00</TRANS_AMOUNT><PRESENT_FLAG>1</PRESENT_FLAG><CARDHOLDER>Mike
+        Dalton</CARDHOLDER><CUSTOMER_STREET>22 S. 3rd St.</CUSTOMER_STREET><CUSTOMER_CITY>Philadelphia</CUSTOMER_CITY><CUSTOMER_STATE>PA</CUSTOMER_STATE><CUSTOMER_ZIP>19406</CUSTOMER_ZIP><ACCT_NUM>4111111111111111</ACCT_NUM><CVV2>999</CVV2><EXP_MONTH>12</EXP_MONTH><EXP_YEAR>20</EXP_YEAR></TRANSACTION>"
+    headers:
+      Content-Type:
+      - text/xml
+      Connection:
+      - close
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - text/xml; charset=utf-8
+      Expires:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Server:
+      - NOT_AUTHORIZED
+      X-Aspnet-Version:
+      - NOT_AUTHORIZED
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Frame-Options:
+      - sameorigin
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Thu, 16 May 2019 16:00:48 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '564'
+    body:
+      encoding: ASCII-8BIT
+      string: "<RESPONSE>\r\n        <AUTH_CODE>TAS571</AUTH_CODE>\r\n        <AVS_CODE>N</AVS_CODE>\r\n
+        \       <CLIENT_ID>17270300010001</CLIENT_ID>\r\n        <COMMAND>PRE_AUTH</COMMAND>\r\n
+        \       <CTROUTD>3</CTROUTD>\r\n        <CVV2_CODE>M</CVV2_CODE>\r\n        <INTRN_SEQ_NUM>95854</INTRN_SEQ_NUM>\r\n
+        \       <MERCHID>888000000830</MERCHID>\r\n        <PAYMENT_MEDIA>VISA</PAYMENT_MEDIA>\r\n
+        \       <PAYMENT_TYPE>CREDIT</PAYMENT_TYPE>\r\n        <REFERENCE>913616501784</REFERENCE>\r\n
+        \       <RESPONSE_TEXT>NO  MATCH </RESPONSE_TEXT>\r\n        <RESULT>APPROVED</RESULT>\r\n
+        \       <RESULT_CODE>5</RESULT_CODE>\r\n        <TERMID>1515</TERMID>\r\n
+        \       <TERMINATION_STATUS>SUCCESS</TERMINATION_STATUS>\r\n        <TRANS_AMOUNT>10.00</TRANS_AMOUNT>\r\n
+        \       <TRANS_DATE>2019.05.16</TRANS_DATE>\r\n        <TRANS_SEQ_NUM>3</TRANS_SEQ_NUM>\r\n
+        \       <TRANS_TIME>12:00:47</TRANS_TIME>\r\n        <TROUTD>95854</TROUTD>\r\n
+        \       <LPTOKEN>97</LPTOKEN>\r\n</RESPONSE>"
+    http_version: 
+  recorded_at: Thu, 16 May 2019 16:00:49 GMT
+- request:
+    method: post
+    uri: https://cert.api.vfipayna.com/IPCHAPI/RH.ASPX
+    body:
+      encoding: UTF-8
+      string: "<TRANSACTION><FUNCTION_TYPE>PAYMENT</FUNCTION_TYPE><PAYMENT_TYPE>CREDIT</PAYMENT_TYPE><CLIENT_ID>17270300010001</CLIENT_ID><MERCHANTKEY>49BC6225-4B49-4585-8D34-07DCA05CF3937FD6C525-8AEE-4916-BEEC-BDB</MERCHANTKEY><USER_ID>apiuser</USER_ID><USER_PW>6GHMg7ur</USER_PW><COMMAND>CREDIT</COMMAND><TRANS_AMOUNT>10.00</TRANS_AMOUNT><TROUTD>95854</TROUTD></TRANSACTION>"
+    headers:
+      Content-Type:
+      - text/xml
+      Connection:
+      - close
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - text/xml; charset=utf-8
+      Expires:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Server:
+      - NOT_AUTHORIZED
+      X-Aspnet-Version:
+      - NOT_AUTHORIZED
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Frame-Options:
+      - sameorigin
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Thu, 16 May 2019 16:00:51 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '520'
+    body:
+      encoding: ASCII-8BIT
+      string: "<RESPONSE>\r\n        <AUTH_CODE>TAS573</AUTH_CODE>\r\n        <CLIENT_ID>17270300010001</CLIENT_ID>\r\n
+        \       <COMMAND>CREDIT</COMMAND>\r\n        <CTROUTD>3</CTROUTD>\r\n        <INTRN_SEQ_NUM>95855</INTRN_SEQ_NUM>\r\n
+        \       <MERCHID>888000000830</MERCHID>\r\n        <PAYMENT_MEDIA>VISA</PAYMENT_MEDIA>\r\n
+        \       <PAYMENT_TYPE>CREDIT</PAYMENT_TYPE>\r\n        <REFERENCE>913616501786</REFERENCE>\r\n
+        \       <RESPONSE_TEXT>APPROVAL TAS573 </RESPONSE_TEXT>\r\n        <RESULT>CAPTURED</RESULT>\r\n
+        \       <RESULT_CODE>4</RESULT_CODE>\r\n        <TERMID>1515</TERMID>\r\n
+        \       <TERMINATION_STATUS>SUCCESS</TERMINATION_STATUS>\r\n        <TRANS_AMOUNT>10.00</TRANS_AMOUNT>\r\n
+        \       <TRANS_DATE>2019.05.16</TRANS_DATE>\r\n        <TRANS_SEQ_NUM>4</TRANS_SEQ_NUM>\r\n
+        \       <TRANS_TIME>12:00:48</TRANS_TIME>\r\n        <TROUTD>95854</TROUTD>\r\n</RESPONSE>"
+    http_version: 
+  recorded_at: Thu, 16 May 2019 16:00:50 GMT
+recorded_with: VCR 2.9.3

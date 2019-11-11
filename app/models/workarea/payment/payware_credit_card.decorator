@@ -1,0 +1,24 @@
+module Workarea
+  decorate Payment::Tender::CreditCard, Payment::SavedCreditCard, with: :payware_connect do
+    decorated do
+      field :partial_number, type: String
+
+      before_validation :save_partial_number, if: :set_partial_number?
+    end
+
+    def save_partial_number
+      self.partial_number = "#{number.first}-#{number.last(4)}"
+    end
+
+    private
+
+      def set_partial_number?
+        number.present? && number !~ /XXXX/
+      end
+
+      def set_saved_card_values
+        super
+        self.partial_number = saved_card.partial_number if saved_card.present?
+      end
+  end
+end

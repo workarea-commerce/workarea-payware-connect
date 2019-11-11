@@ -1,0 +1,33 @@
+module Workarea
+  decorate Payment::Refund::CreditCardTest, with: :payware_connect do
+    def test_complete_refunds_on_the_credit_card_gateway
+      operation = Payment::Refund::CreditCard.new(payment.credit_card, transaction)
+
+      original_refund = Workarea.config.gateways.credit_card.method(:refund)
+      Workarea.config.gateways.credit_card
+        .expects(:refund)
+        .with(500, troutd)
+        .returns(original_refund.call(500, troutd))
+
+      operation.complete!
+    end
+
+    private
+
+    def reference
+      @reference ||= Payment::Transaction.new(
+        amount: 5.to_m,
+        response: ActiveMerchant::Billing::Response.new(
+          true,
+          'Message',
+          { 'RESPONSE' => { 'TROUTD' => troutd } },
+          { authorization: authorization }
+        )
+      )
+    end
+
+    def troutd
+      @troutd ||= ActiveMerchant::Billing::BogusGateway::AUTHORIZATION
+    end
+  end
+end

@@ -1,0 +1,161 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://cert1.ipcharge.net/ipcadminapi/RH.ipc
+    body:
+      encoding: UTF-8
+      string: <AdminRequest><AdminHeader><RequestType>IPCRB_ADMIN</RequestType><FunctionType>ADDON</FunctionType><CommandType>ADDON_NEW_CUSTOMER</CommandType></AdminHeader><AdminBody><HEADER><Client_ID>17270300010001</Client_ID><MERCHANTKEY>49BC6225-4B49-4585-8D34-07DCA05CF3937FD6C525-8AEE-4916-BEEC-BDB</MERCHANTKEY><USERID>apiuser</USERID><USERPWD>6GHMg7ur</USERPWD></HEADER><DETAIL><RECORD><CUSTOMER
+        Merchant_Customer_ID="71409"><Company_Name/><First_Name>Mike</First_Name><Last_Name>Dalton</Last_Name><Address_1>22
+        S. 3rd St.</Address_1><Address_2/><City>Philadelphia</City><Zip>19406</Zip><Pri_Phone>2155555555</Pri_Phone><Pri_Email>mdalton@weblinc.com</Pri_Email></CUSTOMER></RECORD></DETAIL></AdminBody></AdminRequest>
+    headers:
+      Content-Type:
+      - text/xml
+      Connection:
+      - close
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - text/html; charset=utf-8
+      Expires:
+      - "-1"
+      Vary:
+      - Accept-Encoding
+      Server:
+      - Microsoft-IIS/7.5
+      X-Aspnet-Version:
+      - 4.0.30319
+      Date:
+      - Thu, 16 May 2019 16:00:57 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '177'
+    body:
+      encoding: ASCII-8BIT
+      string: "<AdminResponse>\r\n<Status_Code>1</Status_Code>\r\n<Message>SUCCESS</Message></AdminResponse>\r\n"
+    http_version: 
+  recorded_at: Thu, 16 May 2019 16:00:59 GMT
+- request:
+    method: post
+    uri: https://cert1.ipcharge.net/ipcadminapi/RH.ipc
+    body:
+      encoding: UTF-8
+      string: "<AdminRequest><AdminHeader><RequestType>IPCRB_ADMIN</RequestType><FunctionType>ADDON</FunctionType><CommandType>ADDON_NEW_CONTRACT</CommandType></AdminHeader><AdminBody><HEADER><Client_ID>17270300010001</Client_ID><MERCHANTKEY>49BC6225-4B49-4585-8D34-07DCA05CF3937FD6C525-8AEE-4916-BEEC-BDB</MERCHANTKEY><USERID>apiuser</USERID><USERPWD>6GHMg7ur</USERPWD></HEADER><DETAIL><RECORD><CONTRACT><Merchant_Customer_ID>71409</Merchant_Customer_ID><Merchant_Contract_ID>30487</Merchant_Contract_ID><Card_Type>VISA</Card_Type><Pri_Account_Number>4111111111111111</Pri_Account_Number><Pri_Exp_Month>12</Pri_Exp_Month><Pri_Exp_Year>20</Pri_Exp_Year><fAlt_Payment>false</fAlt_Payment></CONTRACT></RECORD></DETAIL></AdminBody></AdminRequest>"
+    headers:
+      Content-Type:
+      - text/xml
+      Connection:
+      - close
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - text/html; charset=utf-8
+      Expires:
+      - "-1"
+      Vary:
+      - Accept-Encoding
+      Server:
+      - Microsoft-IIS/7.5
+      X-Aspnet-Version:
+      - 4.0.30319
+      Date:
+      - Thu, 16 May 2019 16:01:00 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '177'
+    body:
+      encoding: ASCII-8BIT
+      string: "<AdminResponse>\r\n<Status_Code>1</Status_Code>\r\n<Message>SUCCESS</Message></AdminResponse>\r\n"
+    http_version: 
+  recorded_at: Thu, 16 May 2019 16:01:00 GMT
+- request:
+    method: post
+    uri: https://cert.api.vfipayna.com/IPCHAPI/RH.ASPX
+    body:
+      encoding: UTF-8
+      string: "<TRANSACTION><FUNCTION_TYPE>PAYMENT</FUNCTION_TYPE><PAYMENT_TYPE>CREDIT</PAYMENT_TYPE><CLIENT_ID>17270300010001</CLIENT_ID><MERCHANTKEY>49BC6225-4B49-4585-8D34-07DCA05CF3937FD6C525-8AEE-4916-BEEC-BDB</MERCHANTKEY><USER_ID>apiuser</USER_ID><USER_PW>6GHMg7ur</USER_PW><COMMAND>PRE_AUTH</COMMAND><TRANS_AMOUNT>10.00</TRANS_AMOUNT><PRESENT_FLAG>1</PRESENT_FLAG><RBCUSTOMER_ID>71409</RBCUSTOMER_ID><RBCONTRACT_ID>30487</RBCONTRACT_ID></TRANSACTION>"
+    headers:
+      Content-Type:
+      - text/xml
+      Connection:
+      - close
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - text/xml; charset=utf-8
+      Expires:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Server:
+      - NOT_AUTHORIZED
+      X-Aspnet-Version:
+      - NOT_AUTHORIZED
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Frame-Options:
+      - sameorigin
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Thu, 16 May 2019 16:00:58 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '535'
+    body:
+      encoding: ASCII-8BIT
+      string: "<RESPONSE>\r\n        <AUTH_CODE>TAS584</AUTH_CODE>\r\n        <AVS_CODE>N</AVS_CODE>\r\n
+        \       <CLIENT_ID>17270300010001</CLIENT_ID>\r\n        <COMMAND>PRE_AUTH</COMMAND>\r\n
+        \       <CTROUTD>8</CTROUTD>\r\n        <INTRN_SEQ_NUM>95860</INTRN_SEQ_NUM>\r\n
+        \       <MERCHID>888000000830</MERCHID>\r\n        <PAYMENT_MEDIA>VISA</PAYMENT_MEDIA>\r\n
+        \       <PAYMENT_TYPE>CREDIT</PAYMENT_TYPE>\r\n        <REFERENCE>913616501797</REFERENCE>\r\n
+        \       <RESPONSE_TEXT>NO  MATCH </RESPONSE_TEXT>\r\n        <RESULT>APPROVED</RESULT>\r\n
+        \       <RESULT_CODE>5</RESULT_CODE>\r\n        <TERMID>1515</TERMID>\r\n
+        \       <TERMINATION_STATUS>SUCCESS</TERMINATION_STATUS>\r\n        <TRANS_AMOUNT>10.00</TRANS_AMOUNT>\r\n
+        \       <TRANS_DATE>2019.05.16</TRANS_DATE>\r\n        <TRANS_SEQ_NUM>9</TRANS_SEQ_NUM>\r\n
+        \       <TRANS_TIME>12:00:59</TRANS_TIME>\r\n        <TROUTD>95860</TROUTD>\r\n</RESPONSE>"
+    http_version: 
+  recorded_at: Thu, 16 May 2019 16:01:01 GMT
+recorded_with: VCR 2.9.3

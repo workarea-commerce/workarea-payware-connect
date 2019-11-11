@@ -1,0 +1,44 @@
+module Workarea
+  decorate Storefront::CheckoutSideEffectsIntegrationTest, with: :payware_connect do
+    def test_saving_user_info
+      user = create_user(
+        email: 'bcrouse@workarea.com',
+        password: 'w3bl1nc',
+        first_name: nil,
+        last_name: nil
+      )
+
+      complete_checkout('bcrouse@workarea.com', 'w3bl1nc')
+
+      user.reload
+      assert_equal('Ben', user.first_name)
+      assert_equal('Crouse', user.last_name)
+
+      metrics = Metrics::User.first
+      assert_equal(1, metrics.orders)
+      assert_equal(17, metrics.revenue)
+      assert_equal(17, metrics.average_order_value)
+      refute(metrics.last_order_at.blank?)
+
+      payment_profile = Payment::Profile.lookup(PaymentReference.new(user))
+      assert_equal(1, payment_profile.credit_cards.length)
+
+      credit_card = payment_profile.credit_cards.first
+      assert_equal('Test Card', credit_card.issuer)
+      assert_equal('Ben', credit_card.first_name)
+      assert_equal('Crouse', credit_card.last_name)
+      assert_equal('XXXX-XXXX-XXXX-1', credit_card.display_number)
+      assert_equal('1-1', credit_card.partial_number)
+      assert_equal(1, credit_card.month)
+      assert_equal(2020, credit_card.year)
+      refute(credit_card.token.blank?)
+
+      complete_checkout('bcrouse@workarea.com', 'w3bl1nc')
+
+      metrics.reload
+      assert_equal(2, metrics.orders)
+      assert_equal(34, metrics.revenue)
+      assert_equal(17, metrics.average_order_value)
+    end
+  end
+end

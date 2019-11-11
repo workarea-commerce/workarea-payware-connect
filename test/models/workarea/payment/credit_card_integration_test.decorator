@@ -1,0 +1,25 @@
+module Workarea
+  decorate Payment::CreditCardIntegrationTest, with: :payware_connect do
+    decorated do
+      setup :setup_gateway
+      teardown :reset_gateway
+    end
+
+    private
+
+      def setup_gateway
+        @_old_gateway = Workarea.config.gateways.credit_card
+        Workarea.config.gateways.credit_card = ActiveMerchant::Billing::PaywareConnectGateway.new(
+          client_id: "17270300010001",
+          login: "apiuser",
+          password: "6GHMg7ur",
+          merchant_key: "49BC6225-4B49-4585-8D34-07DCA05CF3937FD6C525-8AEE-4916-BEEC-BDB",
+          test: true
+        )
+      end
+
+      def reset_gateway
+        Workarea.config.gateways.credit_card = @_old_gateway
+      end
+  end
+end

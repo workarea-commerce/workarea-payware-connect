@@ -1,0 +1,1 @@
+Workarea::PaywareConnect.auto_configure_gateway

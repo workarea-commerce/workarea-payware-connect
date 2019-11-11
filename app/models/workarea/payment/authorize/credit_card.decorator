@@ -1,0 +1,37 @@
+module Workarea
+  decorate Payment::Authorize::CreditCard, with: :payware_connect do
+    decorated { delegate :address, to: :tender }
+
+    def complete!
+      transaction.response = handle_active_merchant_errors do
+        gateway.authorize(
+          transaction.amount.cents,
+          tender_payment.merge(billing_address: address)
+        )
+      end
+
+      if transaction.response.success?
+        tender.token = transaction.response.troutd
+        tender.save!
+      end
+
+      transaction.response
+    end
+
+    def cancel!
+      return unless transaction.success?
+
+      transaction.cancellation = handle_active_merchant_errors do
+        gateway.void(transaction.response.troutd)
+      end
+    end
+
+    private
+
+    def tender_payment
+      return { troutd: tender.token } if tender.tokenized?
+
+      { credit_card: tender.to_active_merchant }
+    end
+  end
+end

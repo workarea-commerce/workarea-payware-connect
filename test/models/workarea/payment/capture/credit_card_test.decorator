@@ -1,0 +1,33 @@
+module Workarea
+  decorate Payment::Capture::CreditCardTest, with: :payware_connect do
+    def test_complete_captures_on_the_credit_card_gateway
+      operation = Payment::Capture::CreditCard.new(payment.credit_card, transaction)
+
+      original_capture = Workarea.config.gateways.credit_card.method(:capture)
+      Workarea.config.gateways.credit_card
+        .expects(:capture)
+        .with(500, troutd)
+        .returns(original_capture.call(500, troutd))
+
+      operation.complete!
+    end
+
+    private
+
+    def reference
+      @reference ||= Payment::Transaction.new(
+        amount: 5.to_m,
+        response: ActiveMerchant::Billing::Response.new(
+          true,
+          'Message',
+          { 'RESPONSE' => { 'TROUTD' => troutd } },
+          { authorization: authorization }
+        )
+      )
+    end
+
+    def troutd
+      @troutd ||= ActiveMerchant::Billing::BogusGateway::AUTHORIZATION
+    end
+  end
+end

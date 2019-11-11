@@ -1,0 +1,99 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://cert1.ipcharge.net/ipcadminapi/RH.ipc
+    body:
+      encoding: UTF-8
+      string: <AdminRequest><AdminHeader><RequestType>IPCRB_ADMIN</RequestType><FunctionType>ADDON</FunctionType><CommandType>ADDON_NEW_CUSTOMER</CommandType></AdminHeader><AdminBody><HEADER><Client_ID>17270300010001</Client_ID><MERCHANTKEY>49BC6225-4B49-4585-8D34-07DCA05CF3937FD6C525-8AEE-4916-BEEC-BDB</MERCHANTKEY><USERID>apiuser</USERID><USERPWD>6GHMg7ur</USERPWD></HEADER><DETAIL><RECORD><CUSTOMER
+        Merchant_Customer_ID="83627"><Company_Name/><First_Name>Mike</First_Name><Last_Name>Dalton</Last_Name><Address_1>22
+        S. 3rd St.</Address_1><Address_2/><City>Philadelphia</City><Zip>19406</Zip><Pri_Phone>2155555555</Pri_Phone><Pri_Email>mdalton@weblinc.com</Pri_Email></CUSTOMER></RECORD></DETAIL></AdminBody></AdminRequest>
+    headers:
+      Content-Type:
+      - text/xml
+      Connection:
+      - close
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - text/html; charset=utf-8
+      Expires:
+      - "-1"
+      Vary:
+      - Accept-Encoding
+      Server:
+      - Microsoft-IIS/7.5
+      X-Aspnet-Version:
+      - 4.0.30319
+      Date:
+      - Thu, 16 May 2019 16:00:58 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '177'
+    body:
+      encoding: ASCII-8BIT
+      string: "<AdminResponse>\r\n<Status_Code>1</Status_Code>\r\n<Message>SUCCESS</Message></AdminResponse>\r\n"
+    http_version: 
+  recorded_at: Thu, 16 May 2019 16:00:57 GMT
+- request:
+    method: post
+    uri: https://cert1.ipcharge.net/ipcadminapi/RH.ipc
+    body:
+      encoding: UTF-8
+      string: "<AdminRequest><AdminHeader><RequestType>IPCRB_ADMIN</RequestType><FunctionType>ADDON</FunctionType><CommandType>ADDON_NEW_CONTRACT</CommandType></AdminHeader><AdminBody><HEADER><Client_ID>17270300010001</Client_ID><MERCHANTKEY>49BC6225-4B49-4585-8D34-07DCA05CF3937FD6C525-8AEE-4916-BEEC-BDB</MERCHANTKEY><USERID>apiuser</USERID><USERPWD>6GHMg7ur</USERPWD></HEADER><DETAIL><RECORD><CONTRACT><Merchant_Customer_ID>83627</Merchant_Customer_ID><Merchant_Contract_ID>56681</Merchant_Contract_ID><Card_Type>VISA</Card_Type><Pri_Account_Number>4111111111111111</Pri_Account_Number><Pri_Exp_Month>12</Pri_Exp_Month><Pri_Exp_Year>20</Pri_Exp_Year><fAlt_Payment>false</fAlt_Payment></CONTRACT></RECORD></DETAIL></AdminBody></AdminRequest>"
+    headers:
+      Content-Type:
+      - text/xml
+      Connection:
+      - close
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - text/html; charset=utf-8
+      Expires:
+      - "-1"
+      Vary:
+      - Accept-Encoding
+      Server:
+      - Microsoft-IIS/7.5
+      X-Aspnet-Version:
+      - 4.0.30319
+      Date:
+      - Thu, 16 May 2019 16:00:56 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '177'
+    body:
+      encoding: ASCII-8BIT
+      string: "<AdminResponse>\r\n<Status_Code>1</Status_Code>\r\n<Message>SUCCESS</Message></AdminResponse>\r\n"
+    http_version: 
+  recorded_at: Thu, 16 May 2019 16:00:58 GMT
+recorded_with: VCR 2.9.3
