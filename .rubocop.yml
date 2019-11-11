@@ -1,4 +1,2 @@
-inherit_from: .rails-rubocop.yml
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
+inherit_from:
+  - https://raw.githubusercontent.com/workarea-commerce/workarea/master/.rubocop.yml
