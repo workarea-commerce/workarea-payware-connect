@@ -3,13 +3,6 @@ Workarea Payware Connect
 
 Payware Connect plugin for the Workarea platform.
 
-Change Log
---------------------------------------------------------------------------------
-Version 1.1.6 (10/13/2016)
-
-   Changed URLs used by the Payment Gatway
-    - old production URL: https://ipcharge.net/IPCHAPI/RH.aspx
-    - new production URL: https://prod1.ipcharge.net/ipchapi/rh.aspx
 
 Getting Started
 --------------------------------------------------------------------------------
@@ -53,11 +46,8 @@ more details on this implementation. Test is optional and will default to true.
 Workarea Platform Documentation
 --------------------------------------------------------------------------------
 
-See [http://guides.weblinc.com](http://guides.weblinc.com) for Workarea platform documentation.
+See [https://developer.workarea.com](http://developer.workarea.com) for Workarea platform documentation.
 
 Copyright & Licensing
 --------------------------------------------------------------------------------
-
-Copyright WebLinc 2016. All rights reserved.
-
-For licensing, contact sales@weblinc.com.
+Workarea Commerce Platform is released under the [Business Software License](https://github.com/workarea-commerce/workarea/blob/master/LICENSE)
