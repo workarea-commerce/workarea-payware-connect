@@ -15,7 +15,7 @@ module Workarea
             postal_code: "19106"
           }
         )
-        payment.set_credit_card(number: "4111111111111111", month: "01", year: "2020", cvv: 111)
+        payment.set_credit_card(number: "4111111111111111", month: "01", year: next_year.to_s, cvv: 111)
         assert payment.credit_card.partial_number.present?
       end
 
