@@ -48,6 +48,7 @@ task :release do
   system "git push origin HEAD --follow-tags"
 
   system "gem build workarea-payware_connect.gemspec"
+  system "gem push workarea-payware_connect-#{Workarea::PaywareConnect::VERSION}.gem"
   system "gem push workarea-payware_connect-#{Workarea::PaywareConnect::VERSION}.gem --host #{host}"
   system "rm workarea-payware_connect-#{Workarea::PaywareConnect::VERSION}.gem"
 end
