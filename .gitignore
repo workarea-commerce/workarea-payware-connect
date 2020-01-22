@@ -10,3 +10,4 @@ test/dummy/.sass-cache
 test/dummy/public/system/workarea
 Gemfile.lock
 .DS_STORE
+.rubocop-http*
