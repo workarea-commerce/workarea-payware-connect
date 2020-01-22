@@ -1,3 +1,16 @@
+Workarea Payware Connect 2.1.2 (2020-01-21)
+--------------------------------------------------------------------------------
+
+*   Fix Tests for 2020
+
+    Update all tests so that they no longer depend on the year 2020 as an
+    expiration year. Instead, use the  method provided by Workarea.
+
+    PAYWARE-1
+    Tom Scott
+
+
+
 Workarea Payware Connect 2.1.1 (2019-05-28)
 --------------------------------------------------------------------------------
 
